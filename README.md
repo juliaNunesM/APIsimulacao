@@ -37,7 +37,7 @@ O projeto segue arquitetura de microserviços, com endpoints RESTful e comunica�
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seuusuario/repositorio
+git clone https://github.com/juliaNunesM/APIsimulacao
 ```
 
 2. Entre na pasta do projeto:
