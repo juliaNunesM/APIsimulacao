@@ -37,6 +37,8 @@ public class SimulacaoCreditoService {
 
         SimulacaoCreditoDTO response = new SimulacaoCreditoDTO();
         response.setNomeProduto(produto.getNome());
+        response.setValorSolicitado(request.getValorRequerido());
+        response.setMeses(request.getMesesRequerido());
         response.setTaxaJuros(taxa);
         response.setValorTotal(valorTotal.doubleValue());
         response.setValorParcela(valorParcela.doubleValue());
@@ -54,10 +56,7 @@ public class SimulacaoCreditoService {
 
     private ProdutoCreditoFiltroDTO buscarProduto(double valor, int meses) {
 
-        SimulacaoCreditoRequestDTO request = new SimulacaoCreditoRequestDTO();
-        request.setValorRequerido(valor);
-        request.setMesesRequerido(meses);
-        return produtoCreditoClient.buscarPorFiltro(request);
+        return produtoCreditoClient.buscarProduto(valor, meses);
     }
 
 }

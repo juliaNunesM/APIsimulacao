@@ -4,6 +4,7 @@ import com.trabalho.produto_credito.dto.ProdutoCreditoDTO;
 import com.trabalho.produto_credito.dto.ProdutoCreditoFiltroDTO;
 import com.trabalho.produto_credito.dto.ProdutoCreditoRequestDTO;
 import com.trabalho.produto_credito.service.ProdutoCreditoService;
+import io.swagger.v3.oas.annotations.Parameter;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -52,7 +53,16 @@ public class ProdutoCreditoResource {
                     @ApiResponse(responseCode = "404", description = "Produto não encontrado", content = @Content)
             })
     @GetMapping("/buscarPorFiltro")
-    public ResponseEntity<ProdutoCreditoFiltroDTO> buscarPorFiltro(@RequestBody ProdutoCreditoRequestDTO requestDTO) {
+    public ResponseEntity<ProdutoCreditoFiltroDTO> buscarPorFiltro(
+            @Parameter(description = "Valor requerido para o crédito", example = "5000.00")
+            @RequestParam double valorRequerido,
+
+            @Parameter(description = "Quantidade de meses para pagamento", example = "24")
+            @RequestParam int mesesRequerido) {
+
+        ProdutoCreditoRequestDTO requestDTO = new ProdutoCreditoRequestDTO();
+        requestDTO.setValorRequerido(valorRequerido);
+        requestDTO.setMesesRequerido(mesesRequerido);
 
         ProdutoCreditoFiltroDTO resultado = service.buscarPorFiltro(requestDTO);
 

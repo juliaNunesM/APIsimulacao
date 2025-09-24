@@ -21,9 +21,9 @@ public class SimulacaoCreditoResource {
     private SimulacaoCreditoService service;
 
 
-    @PostMapping("/buscar-produto")
+    @PostMapping("/simular")
     @Operation(summary = "Buscar produto para simulação", description = "Retorna o produto que atende ao valor e meses desejados")
-    public ResponseEntity<?> simular(@Valid @RequestBody SimulacaoCreditoRequestDTO requestDTO) {
+    public ResponseEntity<?> simular(SimulacaoCreditoRequestDTO requestDTO) {
 
         SimulacaoCreditoDTO resultado = service.simular(requestDTO);
 
