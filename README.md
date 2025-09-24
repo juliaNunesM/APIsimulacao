@@ -8,7 +8,6 @@ Este projeto consiste em um microserviço de simulação de crédito, desenvolvi
 
 O projeto segue arquitetura de microserviços, com endpoints RESTful e comunicação entre serviços via OpenFeign. A documentação é feita com Swagger/OpenAPI.
 
-O código-fonte completo está disponível em: https://github.com/seuusuario/repositorio
 
 ---
 
